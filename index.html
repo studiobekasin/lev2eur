@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="bg" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lev2EUR - Currency Change Calculator</title>
-    <meta name="description" content="Free EUR/BGN change calculator for cashiers and workers. Calculate change when customers pay with mixed currencies.">
+    <title>Lev2EUR - Калкулатор за ресто в Евро и Лева</title>
+    <meta name="description" content="Безплатен калкулатор за ресто в Евро/Лева за плавно преминаване към еврото">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -948,10 +948,9 @@
             </button>
             <button class="info-btn" onclick="showModal('info')" title="Info">ℹ️</button>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="setLanguage('en')">🇬🇧 EN</button>
-                <button class="lang-btn" onclick="setLanguage('bg')">🇧🇬 BG</button>
+                <button class="lang-btn active" onclick="setLanguage('bg')">🇧🇬 BG</button>
+                <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 EN</button>
                 <button class="lang-btn" onclick="setLanguage('uk')">🇺🇦 UK</button>
-                <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
             </div>
         </div>
     </header>
@@ -991,12 +990,12 @@
                         </div>
                         <div class="input-row">
                             <div class="input-group">
-                                <span class="input-label">EUR</span>
-                                <input type="number" class="calc-input" id="paidEur" placeholder="0.00" step="0.01" inputmode="decimal" oninput="calculate()">
-                            </div>
-                            <div class="input-group">
                                 <span class="input-label">BGN / лв.</span>
                                 <input type="number" class="calc-input" id="paidBgn" placeholder="0.00" step="0.01" inputmode="decimal" oninput="calculate()">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-label">EUR</span>
+                                <input type="number" class="calc-input" id="paidEur" placeholder="0.00" step="0.01" inputmode="decimal" oninput="calculate()">
                             </div>
                         </div>
                     </div>
@@ -1077,7 +1076,7 @@
             <a href="#" onclick="showModal('terms'); return false;" data-i18n="terms">Terms of Use</a>
             <a href="#" onclick="showModal('contact'); return false;" data-i18n="contact">Contact</a>
         </div>
-        <div class="footer-copy">© 2024 Studio Bekasin. <span data-i18n="rights">All rights reserved.</span></div>
+        <div class="footer-copy">© 2026 Studio Bekasin. <span data-i18n="rights">All rights reserved.</span></div>
     </footer>
 
     <!-- Info Modal -->
@@ -1120,7 +1119,7 @@
             <h3>✉️ <span data-i18n="contactTitle">Contact Us</span></h3>
             <p data-i18n="contactText1">Have questions or feedback? We'd love to hear from you!</p>
             <p style="text-align: center; margin: 20px 0;">
-                <a href="mailto:contact@studiobekasin.com" style="color: var(--accent-primary); font-size: 18px; text-decoration: none;">contact@studiobekasin.com</a>
+                <a href="mailto:studiobekasin@gmail.com" style="color: var(--accent-primary); font-size: 18px; text-decoration: none;">studiobekasin@gmail.com</a>
             </p>
             <button class="modal-btn" onclick="hideModal('contact')" data-i18n="close">Close</button>
         </div>
@@ -1200,7 +1199,7 @@
                 rights: "Всички права запазени.",
                 aboutTitle: "За Lev2EUR",
                 aboutText1: "Този калкулатор помага на работници и касиери да изчисляват рестото, когато клиентите плащат със смесени EUR и BGN.",
-                aboutText2: "Обменният курс се взима на живо от Европейската централна банка чрез Frankfurter API. Резервен курс: 1 EUR = 1.9558 лв. (фиксиран).",
+                aboutText2: "Обменният курс се взима в реално време от Европейската централна банка чрез Frankfurter API. Резервен курс: 1 EUR = 1.9558 лв. (фиксиран).",
                 aboutText3: "Използвайте секцията \"Раздели рестото\" за да изчислите колко лева да върнете, ако давате част от рестото в евро.",
                 gotIt: "Разбрах!",
                 privacyTitle: "Политика за поверителност",
@@ -1258,48 +1257,10 @@
                 cookieReject: "Відхилити",
                 stillDue: "Заборгованість",
                 change: "Решта"
-            },
-            ru: {
-                totalToPay: "СУММА К ОПЛАТЕ",
-                customerPays: "КЛИЕНТ ПЛАТИТ",
-                changeDue: "СДАЧА / ЗАДОЛЖЕННОСТЬ",
-                splitChange: "РАЗДЕЛИТЬ СДАЧУ",
-                giveEurLabel: "Даю в EUR",
-                remainingBgn: "Остаток в лв.: 0.00 лв.",
-                clear: "🗑️ Очистить",
-                getApp: "Скачать приложение",
-                getAppDesc: "Используйте Lev2EUR на своём Android устройстве для быстрых расчётов.",
-                getItOn: "СКАЧАТЬ В",
-                privacyPolicy: "Конфиденциальность",
-                terms: "Условия",
-                contact: "Контакт",
-                rights: "Все права защищены.",
-                aboutTitle: "О Lev2EUR",
-                aboutText1: "Этот калькулятор помогает работникам и кассирам рассчитывать сдачу, когда клиенты платят смешанными EUR и BGN.",
-                aboutText2: "Курс обмена получается в реальном времени от Европейского центрального банка через Frankfurter API. Резервный курс: 1 EUR = 1.9558 лв.",
-                aboutText3: "Используйте секцию \"Разделить сдачу\" чтобы рассчитать сколько левов вернуть, если даёте часть сдачи в евро.",
-                gotIt: "Понятно!",
-                privacyTitle: "Политика конфиденциальности",
-                privacyText1: "Этот веб-сайт использует Google AdSense для показа рекламы. Третьи стороны, включая Google, используют cookies для показа рекламы на основе предыдущих посещений.",
-                privacyText2: "Использование рекламных cookies Google позволяет ему и его партнёрам показывать рекламу на основе ваших посещений.",
-                privacyText3: "Вы можете отказаться от персонализированной рекламы, посетив Google Ads Settings (ads.google.com/settings).",
-                privacyText4: "Мы не собираем и не храним личную информацию. Все расчёты выполняются локально в вашем браузере.",
-                close: "Закрыть",
-                termsTitle: "Условия использования",
-                termsText1: "Этот калькулятор предоставляется \"как есть\" только для информационных целей. Хотя мы стремимся к точности, мы не гарантируем правильность расчётов.",
-                termsText2: "Курсы обмена получаются от Европейского центрального банка и могут иметь небольшую задержку. Всегда проверяйте важные транзакции независимо.",
-                termsText3: "Используя эту услугу, вы соглашаетесь с этими условиями и нашей Политикой конфиденциальности.",
-                contactTitle: "Свяжитесь с нами",
-                contactText1: "Есть вопросы или отзывы? Мы будем рады услышать от вас!",
-                cookieMessage: "Мы используем cookies для персонализации рекламы. Продолжая, вы соглашаетесь с нашей <a href=\"#\" onclick=\"showModal('privacy'); return false;\">Политикой конфиденциальности</a>.",
-                cookieAccept: "Принять",
-                cookieReject: "Отклонить",
-                stillDue: "Задолженность",
-                change: "Сдача"
             }
         };
 
-        let currentLang = 'en';
+        let currentLang = 'bg';
         let rate = 1.9558;
         let currentChangeEur = 0;
 
@@ -1313,7 +1274,7 @@
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         }
 
@@ -1340,7 +1301,7 @@
         }
 
         function loadLanguage() {
-            const savedLang = localStorage.getItem('language') || 'en';
+            const savedLang = localStorage.getItem('language') || 'bg';
             setLanguage(savedLang);
         }
 
@@ -1408,8 +1369,7 @@
             const remainingBgn = remainingEur * rate;
             
             const remainText = currentLang === 'en' ? 'Remaining in BGN' : 
-                              currentLang === 'bg' ? 'Остатък в лв.' :
-                              currentLang === 'uk' ? 'Залишок в лв.' : 'Остаток в лв.';
+                              currentLang === 'bg' ? 'Остатък в лв.' : 'Залишок в лв.';
             
             document.getElementById('remainingBgn').textContent = `${remainText}: ${remainingBgn.toFixed(2)} лв.`;
         }
