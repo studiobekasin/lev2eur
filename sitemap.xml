@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://lev2eur.xyz/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
+
+Then submit it in Search Console → Sitemaps → `https://lev2eur.xyz/sitemap.xml`
+
+---
+
+#### 3. **Create robots.txt**
+
+Create `robots.txt` in your GitHub repo:
+```
+User-agent: *
+Allow: /
+Sitemap: https://lev2eur.xyz/sitemap.xml
