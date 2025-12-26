@@ -593,10 +593,22 @@
             left: 0;
             right: 0;
             z-index: 100;
+            max-height: 100px;
+            overflow: hidden;
+        }
+
+        /* Hide mobile ad if AdSense hasn't loaded */
+        .mobile-ad:has(ins[data-ad-status="unfilled"]),
+        .mobile-ad:not(:has(ins iframe)) {
+            display: none !important;
+            padding: 0;
+            height: 0;
         }
 
         .mobile-ad ins {
             display: block;
+            min-height: 50px;
+            max-height: 90px;
         }
 
         /* ============ FOOTER ============ */
@@ -799,7 +811,7 @@
             .main-layout {
                 grid-template-columns: 1fr;
                 padding: 16px;
-                padding-bottom: 100px;
+                padding-bottom: 20px;
             }
 
             .ad-sidebar {
@@ -808,6 +820,13 @@
 
             .mobile-ad {
                 display: block;
+                min-height: 0;
+            }
+            
+            /* Hide mobile ad container when empty (before AdSense approval) */
+            .mobile-ad:empty,
+            .mobile-ad ins:empty {
+                display: none;
             }
 
             .header {
@@ -890,7 +909,7 @@
             }
 
             .footer {
-                padding-bottom: 100px;
+                padding-bottom: 20px;
             }
 
             .cookie-content {
@@ -911,7 +930,7 @@
             }
 
             .cookie-banner.show {
-                bottom: 80px;
+                bottom: 0;
             }
         }
 
@@ -1055,17 +1074,25 @@
         </aside>
     </div>
 
-    <!-- Mobile Ad (Bottom) -->
-    <div class="mobile-ad">
+    <!-- Mobile Ad (Bottom) - Will show after AdSense approval -->
+    <div class="mobile-ad" id="mobileAdContainer">
         <!-- horizontal_dolu Ad -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-2617928773795455"
              data-ad-slot="7160115692"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             data-ad-format="horizontal"
+             data-full-width-responsive="false"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
+             // Hide container if ad doesn't load
+             setTimeout(function() {
+                 var adContainer = document.getElementById('mobileAdContainer');
+                 var adIns = adContainer.querySelector('ins');
+                 if (adIns && (!adIns.innerHTML || adIns.innerHTML.trim() === '' || adIns.offsetHeight < 10)) {
+                     adContainer.style.display = 'none';
+                 }
+             }, 2000);
         </script>
     </div>
 
@@ -1119,7 +1146,7 @@
             <h3>✉️ <span data-i18n="contactTitle">Contact Us</span></h3>
             <p data-i18n="contactText1">Have questions or feedback? We'd love to hear from you!</p>
             <p style="text-align: center; margin: 20px 0;">
-                <a href="mailto:studiobekasin@gmail.com" style="color: var(--accent-primary); font-size: 18px; text-decoration: none;">studiobekasin@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#2053545544494f42454b4153494e60474d41494c0e434f4d" style="color: var(--accent-primary); font-size: 18px; text-decoration: none;"><span class="__cf_email__" data-cfemail="d5a6a1a0b1bcbab7b0beb4a6bcbb95b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
             </p>
             <button class="modal-btn" onclick="hideModal('contact')" data-i18n="close">Close</button>
         </div>
@@ -1141,7 +1168,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ============ TRANSLATIONS ============
         const translations = {
             en: {
@@ -1426,13 +1453,3 @@
             checkCookieConsent();
             
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    ['info', 'privacy', 'terms', 'contact'].forEach(type => {
-                        hideModal(type);
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
