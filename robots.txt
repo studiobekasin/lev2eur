@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://lev2eur.xyz/sitemap.xml
+Crawl-delay: 1
