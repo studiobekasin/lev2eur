@@ -7,16 +7,3 @@
     <priority>1.0</priority>
   </url>
 </urlset>
-```
-
-Then submit it in Search Console → Sitemaps → `https://lev2eur.xyz/sitemap.xml`
-
----
-
-#### 3. **Create robots.txt**
-
-Create `robots.txt` in your GitHub repo:
-```
-User-agent: *
-Allow: /
-Sitemap: https://lev2eur.xyz/sitemap.xml
