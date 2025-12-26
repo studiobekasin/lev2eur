@@ -3,8 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lev2EUR - Калкулатор за ресто в Евро и Лева</title>
-    <meta name="description" content="Безплатен калкулатор за ресто в Евро/Лева за плавно преминаване към еврото">
+    <title>Lev2EUR - Калкулатор за ресто и превалутиране в евро | Валутен калкулатор BGN EUR</title>
+    <meta name="description" content="Безплатен калкулатор за ресто в Евро и Лева. Изчислете бързо рестото при плащане със смесени валути EUR и BGN. Идеален за касиери и търговци при преминаване към еврото.">
+    
+    <!-- SEO Meta Tags Bulgarian -->
+    <meta name="keywords" content="калкулатор, ресто, валутен калкулатор, евро, лева, BGN, EUR, превалутиране, обмяна на валута, конвертор, euro calculator, lev to euro, bulgarian lev, exchange rate, currency converter, ресто калкулатор, касов апарат, търговия, еврозона, България евро, фиксиран курс, 1.95583, касиер, магазин, плащане, смяна на валута, kalkulator, resto, leva, evro, obmen, valuta, konvertor, izchisli resto, пари, монети, банкноти, дребни, въвеждане на еврото, еврото в България, двойно обращение">
+    <meta name="author" content="Studio Bekasin">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Bulgarian">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lev2eur.xyz/">
+    <meta property="og:title" content="Lev2EUR - Калкулатор за ресто и превалутиране в евро">
+    <meta property="og:description" content="Безплатен калкулатор за ресто в Евро и Лева. Изчислете бързо рестото при плащане със смесени валути EUR и BGN.">
+    <meta property="og:locale" content="bg_BG">
+    <meta property="og:site_name" content="Lev2EUR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lev2EUR - Калкулатор за ресто и превалутиране в евро">
+    <meta name="twitter:description" content="Безплатен калкулатор за ресто в Евро и Лева. Идеален за касиери при преминаване към еврото.">
+    
+    <!-- Additional SEO -->
+    <meta name="subject" content="Валутен калкулатор евро лева">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="coverage" content="Bulgaria">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="theme-color" content="#00a88a">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lev2eur.xyz/">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Lev2EUR",
+        "alternateName": ["Калкулатор за ресто", "Валутен калкулатор", "Euro Calculator Bulgaria"],
+        "description": "Безплатен калкулатор за ресто в Евро и Лева. Изчислете бързо рестото при плащане със смесени валути EUR и BGN.",
+        "url": "https://lev2eur.xyz",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BGN"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Studio Bekasin",
+            "email": "studiobekasin@gmail.com"
+        },
+        "inLanguage": ["bg", "en", "uk"],
+        "keywords": "калкулатор, ресто, евро, лева, BGN, EUR, превалутиране, валутен калкулатор, currency calculator, exchange rate"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -95,18 +154,16 @@
             transition: background var(--transition-speed), border-color var(--transition-speed);
         }
 
-        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo { display: flex; flex-direction: column; gap: 4px; }
 
-        .logo-icon {
-            width: 44px; height: 44px; background: var(--accent-gradient);
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            font-size: 22px; box-shadow: 0 4px 15px rgba(0, 212, 170, 0.25);
-        }
+        .logo-svg { height: 32px; width: auto; }
 
-        .logo-text { font-weight: 700; font-size: 22px; letter-spacing: -0.5px; }
-        .logo-text span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        /* Dark theme adjustments for SVG logo */
+        [data-theme="dark"] .logo-svg text:nth-of-type(2) { fill: #ffffff; }
+
+        .logo-subtitle {
+            font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 0.3px;
         }
 
         .header-controls { display: flex; align-items: center; gap: 12px; }
@@ -387,8 +444,8 @@
             .ad-sidebar { display: none; }
             .mobile-ad { display: block; }
             .header { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
-            .logo-text { font-size: 18px; }
-            .logo-icon { width: 38px; height: 38px; font-size: 18px; }
+            .logo-svg { height: 26px; }
+            .logo-subtitle { font-size: 9px; max-width: 180px; line-height: 1.2; }
             .header-controls { gap: 8px; }
             .theme-toggle, .info-btn { width: 38px; height: 38px; font-size: 16px; }
             .lang-switcher { order: 10; width: 100%; justify-content: center; margin-top: 4px; }
@@ -422,8 +479,22 @@
 
     <header class="header">
         <div class="logo">
-            <div class="logo-icon">💱</div>
-            <div class="logo-text">Lev<span>2EUR</span></div>
+            <svg class="logo-svg" width="120" height="32" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bulgarianFlag" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                        <stop offset="33.33%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                        <stop offset="33.33%" style="stop-color:#00966E;stop-opacity:1" />
+                        <stop offset="66.66%" style="stop-color:#00966E;stop-opacity:1" />
+                        <stop offset="66.66%" style="stop-color:#D62612;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#D62612;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="0" y="60" font-size="60" font-weight="900" font-family="Arial, sans-serif" fill="url(#bulgarianFlag)" stroke="#333" stroke-width="1">Lev</text>
+                <text x="110" y="60" font-size="60" font-weight="bold" font-family="Arial, sans-serif" fill="#000000">2</text>
+                <text x="150" y="60" font-size="60" font-weight="bold" font-family="Arial, sans-serif" fill="#007bff">EUR</text>
+            </svg>
+            <div class="logo-subtitle">Калкулатор за ресто и превалутиране в евро</div>
         </div>
         <div class="header-controls">
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
