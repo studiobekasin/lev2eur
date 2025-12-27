@@ -311,6 +311,28 @@
             border: 1px solid var(--border-color); transition: all 0.3s ease;
         }
 
+
+            /* Help Button Row */
+            .calc-header-buttons {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .help-btn {
+                text-decoration: none;
+                background: rgba(0, 168, 255, 0.15);
+                border-color: rgba(0, 168, 255, 0.3);
+                color: var(--accent-secondary);
+            }
+            
+            .help-btn:hover {
+                background: rgba(0, 168, 255, 0.25);
+                border-color: var(--accent-secondary);
+                color: var(--accent-secondary);
+            }
+            
+
+
         .calc-section:hover { border-color: rgba(0, 212, 170, 0.2); }
 
         .calc-section-title {
@@ -584,7 +606,10 @@
                     <span class="rate-dot"></span>
                     <span id="rateDisplay">1 EUR = 1.95583 BGN</span>
                 </div>
-                <button class="calc-btn" onclick="clearAll()" data-i18n="clear">🗑️ Изчисти</button>
+                <div class="calc-header-buttons">
+                    <a href="help.html" class="calc-btn help-btn" data-i18n="help">❓ Help</a>
+                    <button class="calc-btn" onclick="clearAll()" data-i18n="clear">🗑️ Изчисти</button>
+            </div>
             </div>
 
             <div class="calc-body">
@@ -761,6 +786,7 @@
                 giveEurLabel: "Give in EUR",
                 remainingBgn: "Remaining in BGN: 0.00 лв.",
                 clear: "🗑️ Clear All",
+                help: "❓ Help",
                 getApp: "Get the App",
                 getAppDesc: "Use Lev2EUR on your Android device for quick calculations on the go.",
                 getItOn: "GET IT ON",
@@ -800,6 +826,7 @@
                 giveEurLabel: "Давам в EUR",
                 remainingBgn: "Остатък в лв.: 0.00 лв.",
                 clear: "🗑️ Изчисти",
+                help: "❓ Помощ",
                 getApp: "Вземи приложението",
                 getAppDesc: "Използвай Lev2EUR на Android устройството си за бързи изчисления в движение.",
                 getItOn: "ИЗТЕГЛИ ОТ",
@@ -839,6 +866,7 @@
                 giveEurLabel: "Даю в EUR",
                 remainingBgn: "Залишок в лв.: 0.00 лв.",
                 clear: "🗑️ Очистити",
+                help: "❓ Допомога",
                 getApp: "Завантажити додаток",
                 getAppDesc: "Використовуйте Lev2EUR на своєму Android пристрої для швидких розрахунків.",
                 getItOn: "ЗАВАНТАЖИТИ З",
@@ -878,6 +906,7 @@
                 giveEurLabel: "Даю в EUR",
                 remainingBgn: "Остаток в лв.: 0.00 лв.",
                 clear: "🗑️ Очистить",
+                help: "❓ Помощь",
                 getApp: "Скачать приложение",
                 getAppDesc: "Используйте Lev2EUR на своём Android устройстве для быстрых расчётов.",
                 getItOn: "СКАЧАТЬ В",
