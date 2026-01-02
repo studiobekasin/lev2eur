@@ -88,7 +88,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preconnect to Ads domains (optional, fine to keep) -->
+    <!-- Preconnect to Ads domains -->
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagservices.com" crossorigin>
@@ -101,7 +101,6 @@
     </noscript>
 
     <style>
-        /* (CSS unchanged from your original) */
         :root { --transition-speed: 0.3s; }
         [data-theme="dark"] { --bg-primary:#0a0a0f; --bg-secondary:#12121a; --bg-card:#1a1a24; --bg-elevated:#222230; --bg-input:#15151f; --accent-primary:#00f5c4; --accent-secondary:#40c4ff; --accent-gradient:linear-gradient(135deg,#00f5c4 0%,#40c4ff 100%); --text-primary:#ffffff; --text-secondary:#c0c0d0; --text-muted:#9090a5; --border-color:rgba(255,255,255,0.08); --shadow-glow:0 0 60px rgba(0,212,170,0.15); --section-title-bg:rgba(0,212,170,0.12); --result-positive:#00f5c4; --result-negative:#ff6b6b; }
         [data-theme="light"] { --bg-primary:#f5f7fa; --bg-secondary:#ffffff; --bg-card:#ffffff; --bg-elevated:#f0f2f5; --bg-input:#f8f9fb; --accent-primary:#007a63; --accent-secondary:#0066aa; --accent-gradient:linear-gradient(135deg,#00a88a 0%,#0088cc 100%); --text-primary:#1a1a2e; --text-secondary:#404050; --text-muted:#5a5a6a; --border-color:rgba(0,0,0,0.08); --shadow-glow:0 4px 30px rgba(0,168,138,0.15); --section-title-bg:rgba(0,168,138,0.12); --result-positive:#007a63; --result-negative:#c62828; }
@@ -158,6 +157,8 @@
         .calc-header-buttons{display:flex;gap:10px;}
         .help-btn{text-decoration:none;background:rgba(0,168,255,0.15);border-color:rgba(0,168,255,0.3);color:var(--accent-secondary);display:inline-flex;align-items:center;justify-content:center;}
         .help-btn:hover{background:rgba(0,168,255,0.25);border-color:var(--accent-secondary);color:var(--accent-secondary);}
+        .quick-btn{background:rgba(0,212,170,0.15);border-color:rgba(0,212,170,0.3);color:var(--accent-primary);}
+        .quick-btn:hover{background:rgba(0,212,170,0.25);border-color:var(--accent-primary);color:var(--accent-primary);}
 
         .calc-section:hover{border-color:rgba(0,212,170,0.2);}
         .calc-section-title{font-size:16px;font-weight:800;color:var(--text-primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--section-title-bg);border-radius:10px;border-left:4px solid var(--accent-primary);}
@@ -185,6 +186,7 @@
         @keyframes slideIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 
         .ad-sidebar{display:flex;flex-direction:column;gap:20px;}
+        .ad-unit{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;overflow:hidden;padding:10px;}
         .play-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:20px;text-align:center;}
         .play-card h4{font-size:15px;margin-bottom:8px;}
         .play-card p{font-size:13px;color:var(--text-secondary);margin-bottom:16px;line-height:1.5;}
@@ -195,6 +197,13 @@
         .play-btn-text{text-align:left;}
         .play-btn-text small{font-size:9px;text-transform:uppercase;letter-spacing:0.5px;opacity:0.7;}
         .play-btn-text span{display:block;font-size:14px;font-weight:600;}
+
+        .social-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:20px;text-align:center;}
+        .social-card h4{font-size:15px;margin-bottom:12px;}
+        .social-links{display:flex;justify-content:center;gap:12px;}
+        .social-link{width:44px;height:44px;border-radius:12px;background:var(--bg-elevated);border:1px solid var(--border-color);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;transition:all 0.2s ease;}
+        .social-link:hover{background:var(--accent-gradient);border-color:transparent;transform:scale(1.1);}
+        .social-link.facebook:hover{background:#1877f2;}
 
         .footer{position:relative;z-index:1;padding:20px 24px;text-align:center;border-top:1px solid var(--border-color);background:var(--bg-secondary);}
         .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:10px;flex-wrap:wrap;}
@@ -313,7 +322,8 @@
                     <span id="rateDisplay">1 EUR = 1.95583 BGN</span>
                 </div>
                 <div class="calc-header-buttons">
-                    <a href="help.html" class="calc-btn help-btn" data-i18n="help">❓ Help</a>
+                    <button class="calc-btn quick-btn" onclick="showQuickConvert()" data-i18n="quickConvert">⚡ BGN→EUR</button>
+                    <a href="help.html" class="calc-btn help-btn" data-i18n="help">❓ Помощ</a>
                     <button class="calc-btn" onclick="clearAll()" data-i18n="clear">🗑️ Изчисти</button>
                 </div>
             </div>
@@ -374,6 +384,20 @@
         </main>
 
         <aside class="ad-sidebar">
+            <!-- AdSense Vertical Ad -->
+            <div class="ad-unit">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2617928773795455"
+                     data-ad-slot="6099790245"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Google Play Card -->
             <div class="play-card">
                 <h4 data-i18n="getApp">Вземи приложението</h4>
                 <p data-i18n="getAppDesc">Използвай Lev2EUR на Android устройството си за бързи изчисления в движение.</p>
@@ -385,12 +409,23 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Social Media Card -->
+            <div class="social-card">
+                <h4 data-i18n="followUs">Последвай ни</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/lev2eur" target="_blank" rel="noopener" class="social-link facebook" title="Facebook">
+                        📘
+                    </a>
+                </div>
+            </div>
         </aside>
     </div>
 
     <footer class="footer">
         <div class="footer-links">
-            <a href="#" onclick="showModal('privacy'); return false;" data-i18n="privacyPolicy">Поверителност</a>
+            <a href="https://www.facebook.com/lev2eur" target="_blank" rel="noopener">📘 Facebook</a>
+            <a href="privacy.html" data-i18n="privacyPolicy">🔒 Поверителност</a>
             <a href="#" onclick="showModal('terms'); return false;" data-i18n="terms">Условия</a>
             <a href="#" onclick="showModal('contact'); return false;" data-i18n="contact">Контакт</a>
         </div>
@@ -438,6 +473,21 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="quickConvertModal" onclick="closeModal(event, 'quickConvert')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <h3>⚡ <span data-i18n="quickConvertTitle">Бързо превалутиране</span></h3>
+            <div style="margin:16px 0;">
+                <label style="display:block;font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:6px;" data-i18n="enterBgn">Въведи сума в лева (BGN):</label>
+                <input type="number" id="quickBgnInput" placeholder="0.00" step="0.01" inputmode="decimal" oninput="quickConvert()" style="width:100%;padding:14px;background:var(--bg-input);border:2px solid var(--border-color);border-radius:12px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:600;">
+            </div>
+            <div style="text-align:center;padding:20px;background:var(--bg-elevated);border-radius:12px;margin:16px 0;">
+                <div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;" data-i18n="result">Резултат:</div>
+                <div id="quickResult" style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:700;color:var(--accent-primary);">0.00 EUR</div>
+            </div>
+            <button class="modal-btn" onclick="hideModal('quickConvert')" data-i18n="close">Затвори</button>
+        </div>
+    </div>
+
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
@@ -454,7 +504,6 @@
     </div>
 
     <script>
-        /* (JS unchanged from your original) */
         const translations = {
             en: {
                 totalToPay: "TOTAL TO PAY",
@@ -465,10 +514,15 @@
                 remainingBgn: "Remaining in BGN: 0.00 лв.",
                 clear: "🗑️ Clear All",
                 help: "❓ Help",
+                quickConvert: "⚡ BGN→EUR",
+                quickConvertTitle: "Quick Conversion",
+                enterBgn: "Enter amount in leva (BGN):",
+                result: "Result:",
                 getApp: "Get the App",
                 getAppDesc: "Use Lev2EUR on your Android device for quick calculations on the go.",
                 getItOn: "GET IT ON",
-                privacyPolicy: "Privacy Policy",
+                followUs: "Follow Us",
+                privacyPolicy: "🔒 Privacy",
                 terms: "Terms of Use",
                 contact: "Contact",
                 rights: "All rights reserved.",
@@ -505,10 +559,15 @@
                 remainingBgn: "Остатък в лв.: 0.00 лв.",
                 clear: "🗑️ Изчисти",
                 help: "❓ Помощ",
+                quickConvert: "⚡ лв→EUR",
+                quickConvertTitle: "Бързо превалутиране",
+                enterBgn: "Въведи сума в лева (BGN):",
+                result: "Резултат:",
                 getApp: "Вземи приложението",
                 getAppDesc: "Използвай Lev2EUR на Android устройството си за бързи изчисления в движение.",
                 getItOn: "ИЗТЕГЛИ ОТ",
-                privacyPolicy: "Поверителност",
+                followUs: "Последвай ни",
+                privacyPolicy: "🔒 Поверителност",
                 terms: "Условия",
                 contact: "Контакт",
                 rights: "Всички права запазени.",
@@ -545,10 +604,15 @@
                 remainingBgn: "Залишок в лв.: 0.00 лв.",
                 clear: "🗑️ Очистити",
                 help: "❓ Допомога",
+                quickConvert: "⚡ лв→EUR",
+                quickConvertTitle: "Швидка конвертація",
+                enterBgn: "Введіть суму в левах (BGN):",
+                result: "Результат:",
                 getApp: "Завантажити додаток",
                 getAppDesc: "Використовуйте Lev2EUR на своєму Android пристрої для швидких розрахунків.",
                 getItOn: "ЗАВАНТАЖИТИ З",
-                privacyPolicy: "Конфіденційність",
+                followUs: "Підписуйтесь",
+                privacyPolicy: "🔒 Конфіденційність",
                 terms: "Умови",
                 contact: "Контакт",
                 rights: "Всі права захищені.",
@@ -585,10 +649,15 @@
                 remainingBgn: "Остаток в лв.: 0.00 лв.",
                 clear: "🗑️ Очистить",
                 help: "❓ Помощь",
+                quickConvert: "⚡ лв→EUR",
+                quickConvertTitle: "Быстрая конвертация",
+                enterBgn: "Введите сумму в левах (BGN):",
+                result: "Результат:",
                 getApp: "Скачать приложение",
                 getAppDesc: "Используйте Lev2EUR на своём Android устройстве для быстрых расчётов.",
                 getItOn: "СКАЧАТЬ В",
-                privacyPolicy: "Конфиденциальность",
+                followUs: "Подписывайтесь",
+                privacyPolicy: "🔒 Конфиденциальность",
                 terms: "Условия",
                 contact: "Контакт",
                 rights: "Все права защищены.",
@@ -760,6 +829,19 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function showQuickConvert() {
+            showModal('quickConvert');
+            document.getElementById('quickBgnInput').value = '';
+            document.getElementById('quickResult').textContent = '0.00 EUR';
+            setTimeout(() => document.getElementById('quickBgnInput').focus(), 100);
+        }
+
+        function quickConvert() {
+            const bgn = parseFloat(document.getElementById('quickBgnInput').value) || 0;
+            const eur = bgn / rate;
+            document.getElementById('quickResult').textContent = eur.toFixed(2) + ' EUR';
+        }
+
         function hideModal(type) {
             document.getElementById(type + 'Modal').classList.remove('show');
             document.body.style.overflow = '';
@@ -792,7 +874,7 @@
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    ['info', 'privacy', 'terms', 'contact'].forEach(type => hideModal(type));
+                    ['info', 'privacy', 'terms', 'contact', 'quickConvert'].forEach(type => hideModal(type));
                 }
             });
         });
